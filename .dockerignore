@@ -1,0 +1,9 @@
+# Keep the key and the samples out of the image — a 400KB WAV set and a
+# credential have no business in a public registry layer.
+.runpod-key
+.groq-key
+samples/
+*.wav
+node_modules/
+__pycache__/
+*.pyc

@@ -1,0 +1,7 @@
+﻿# keys and eval-only assets stay out of git
+.groq-key
+.runpod-key
+samples/
+__pycache__/
+*.pyc
+node_modules/
