@@ -176,7 +176,14 @@ def handler(event):
     return out
 
 
-if __name__ == "__main__":
+# Start at module level, not under `if __name__ == "__main__"`.
+# Runpod's GitHub build validation statically scans for runpod.serverless.start()
+# and a guard-clause call is reported as "could not find runpod.serverless.start()".
+# Guarded on the import so `python -m py_compile` and local unit checks still work
+# without the runpod SDK installed.
+try:
     import runpod
 
     runpod.serverless.start({"handler": handler})
+except ImportError:
+    pass
